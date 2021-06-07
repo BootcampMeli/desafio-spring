@@ -11,4 +11,4 @@ Desafio Spring Social Meli
 |Giovanni Santoro|giovanni|
 
 # Swagger
-* [Swagger UI](http://localhost:8090/api/swagger-ui.html)
+* [Swagger UI](http://localhost:8080/swagger-ui.html)
