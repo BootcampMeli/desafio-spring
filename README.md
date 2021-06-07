@@ -1,12 +1,4 @@
-# Desafio-spring
-Desafio Spring Social Meli
+Social Meli was developed by Giovanni Santoro as a study assignment for the Meli Bootcamp (powered by Digital House)
 
-
-|Nome|Branch|
-|-------------------------------|-----------------------------|
-|Rayan Dias Costa Salewski|rayan|
-|Matheus Vinicius De Souza Gomes|matheus|
-|Vivian Tanaka|vivian|
-|Alberto Cesar Ferreira De Almeida Filho|alberto|
-|Giovanni Santoro|giovanni|
-
+Postman documentation of API requests:<br>
+https://documenter.getpostman.com/view/15986728/TzY6AZsB
