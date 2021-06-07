@@ -10,3 +10,5 @@ Desafio Spring Social Meli
 |Alberto Cesar Ferreira De Almeida Filho|alberto|
 |Giovanni Santoro|giovanni|
 
+# Swagger
+* [Swagger UI](http://localhost:8090/api/swagger-ui.html)
