@@ -72,7 +72,7 @@ public class ProductService {
     private void sortByDate(List<Post> posts, String orderBy){
         String[] order = orderBy.split("_");
 
-        if (order[1].equals("asc")) {
+        if (order.length == 1 || order[1].equals("asc")) {
             Collections.sort(posts, Comparator.comparing(Post::getDate));
         } else {
             Collections.sort(posts, Comparator.comparing(Post::getDate).reversed());

@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "cd5029f4-5400-45e7-a49f-ce9969809406",
+		"name": "Desafio Spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /users/{id}/follow/{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/users/1/follow/4",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"1",
+						"follow",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /users/{id}/unfollow/{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/users/1/unfollow/4",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"1",
+						"unfollow",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/{id}/follower/count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/users/5/followers/count",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"5",
+						"followers",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /{id}/followers/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/users/3/followers/list?order=name_desc",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"3",
+						"followers",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "name_desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /{id}/following/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/users/1/followed/list?order=name_desc",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"1",
+						"followed",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "name_desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /products/newpost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 4,\n    \"id_post\": 18,\n    \"date\": \"05-06-2021\",\n    \"detail\": {\n        \"product_id\": 1,\n        \"productName\": \"Cadeira Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 12354\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/products/newpost",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"newpost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /products/followed/{userId}/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/products/followed/1/list?order=date_asc",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "date_asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /{user}/countPromo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/products/3/countPromo",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"3",
+						"countPromo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET products/{user}/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/products/4/list",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"4",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

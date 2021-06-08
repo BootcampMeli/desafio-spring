@@ -28,8 +28,6 @@ public class UserService {
 
         if (!userOptional.isPresent()) throw new UserNotFoundException("User not found. Id: " + id);
 
-        BaseUserDTO baseUserDTO = new BaseUserDTO(userOptional.get());
-
         return userOptional.get();
     }
 
@@ -39,6 +37,8 @@ public class UserService {
 
         User customer = findById(userId);
         User seller = findById(userIdToFollow);
+
+        if(seller.getPosts().isEmpty()) throw new ActionNotAllowedException("Cannot follow regular user");
 
         customer.getFollowing().add(seller);
         seller.getFollowers().add(customer);
@@ -96,9 +96,9 @@ public class UserService {
     private void sortByName(List<BaseUserDTO> users, String orderBy) {
         String [] order = orderBy.split("_");
 
-        if (order[1].equals("asc")) {
+        if(order.length == 1 || order[1].equals("asc")){
             Collections.sort(users, Comparator.comparing(BaseUserDTO::getUserName));
-        } else {
+        } else{
             Collections.sort(users, Comparator.comparing(BaseUserDTO::getUserName).reversed());
         }
     }
