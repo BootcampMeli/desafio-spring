@@ -33,9 +33,9 @@ public class UserService {
         return userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
     }
 
-    public Salesman getSalesman(Integer userID) throws UserNotFoundException, UserNotASalesmanException {
+    public Salesman getSalesman(Integer userID) {
         User user = getUser(userID);
-        Salesman salesman = null;
+        Salesman salesman;
         try {
             salesman = salesmanRepository.findById(userID).get();
         }catch (NoSuchElementException e){
@@ -48,7 +48,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User follow(Integer userId, Integer salesmanIDToFollow) throws UserNotFoundException, UserNotASalesmanException {
+    public User follow(Integer userId, Integer salesmanIDToFollow) {
         User user = getUser(userId);
         Salesman salesmanToFollow = getSalesman(salesmanIDToFollow);
 
@@ -60,7 +60,7 @@ public class UserService {
         return user;
     }
 
-    public User unfollow(Integer userID, Integer salesmanIDToUnfollow) throws UserNotFoundException, UserNotASalesmanException {
+    public User unfollow(Integer userID, Integer salesmanIDToUnfollow) {
         User user = getUser(userID);
         Salesman salesmanToUnfollow = getSalesman(salesmanIDToUnfollow);
 
@@ -72,7 +72,7 @@ public class UserService {
         return user;
     }
 
-    public SalesmanFollowersListDTO getFollowersList(Integer userID, String orderBy) throws UserNotFoundException, UserNotASalesmanException {
+    public SalesmanFollowersListDTO getFollowersList(Integer userID, String orderBy) {
         Salesman salesman = getSalesman(userID);
         List<UserDTO> followers = null;
 
@@ -88,7 +88,7 @@ public class UserService {
         return salesmanFollowersListDTO;
     }
 
-    public UserFollowedListDTO getFollowedList(Integer userID, String orderBy) throws UserNotFoundException{
+    public UserFollowedListDTO getFollowedList(Integer userID, String orderBy) {
         User user = getUser(userID);
         List<UserDTO> followed = null;
 
@@ -105,7 +105,7 @@ public class UserService {
         return userFollowedListDTO;
     }
 
-    public SalesmanFollowersCountDTO getFollowersCount(Integer userID) throws UserNotFoundException, UserNotASalesmanException{
+    public SalesmanFollowersCountDTO getFollowersCount(Integer userID) {
         Salesman salesman = getSalesman(userID);
         SalesmanFollowersCountDTO salesmanFollowersCountDTO = new SalesmanFollowersCountDTO(salesman);
         salesmanFollowersCountDTO.setFollowersCount(salesman.getFollowers().size());

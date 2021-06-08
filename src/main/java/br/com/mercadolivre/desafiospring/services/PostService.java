@@ -9,8 +9,6 @@ import br.com.mercadolivre.desafiospring.dto.PostDTO;
 import br.com.mercadolivre.desafiospring.repositories.PostRepository;
 import br.com.mercadolivre.desafiospring.repositories.ProductRepository;
 import br.com.mercadolivre.desafiospring.repositories.SalesmanRepository;
-import br.com.mercadolivre.desafiospring.resources.exceptions.UserNotASalesmanException;
-import br.com.mercadolivre.desafiospring.resources.exceptions.UserNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -34,7 +32,7 @@ public class PostService {
         this.userService = userService;
     }
 
-    public void insert(PostDTO postDTO) throws UserNotASalesmanException, UserNotFoundException {
+    public void insert(PostDTO postDTO) {
         Integer userID = postDTO.getUserID();
         Salesman salesman = userService.getSalesman(userID);
 
@@ -47,15 +45,13 @@ public class PostService {
         postRepository.save(post);
     }
 
-    public FeedPostsDTO getFollowedUsersPost(Integer userID, String orderBy) throws UserNotFoundException {
+    public FeedPostsDTO getFollowedUsersPost(Integer userID, String orderBy) {
         User user = userService.getUser(userID);
         FeedPostsDTO feedPostsDTO = new FeedPostsDTO();
 
         Set<Post> allPosts = new HashSet<>();
         for (Salesman followed : user.getFollowed()) {
-            for (Post post : followed.getPosts()) {
-                allPosts.add(post);
-            }
+            allPosts.addAll(followed.getPosts());
         }
 
         LocalDate twoWeeksAgo = LocalDate.now().minusWeeks(2);

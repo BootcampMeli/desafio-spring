@@ -2,7 +2,6 @@ package br.com.mercadolivre.desafiospring.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -28,7 +27,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
 
-        ApiInfo apiInfo = new ApiInfoBuilder()
+        return new ApiInfoBuilder()
                 .title ("Social Meli")
                 .description ("Desafio Spring - Digital House.")
                 .license("Apache License Version 2.0")
@@ -37,7 +36,5 @@ public class SwaggerConfig {
                 .version("1.0.0")
                 .contact(new Contact("Matheus Gomes","https://github.com/matheusmeli", "matheus.agomes@mercadolivre.com"))
                 .build();
-
-        return apiInfo;
     }
 }

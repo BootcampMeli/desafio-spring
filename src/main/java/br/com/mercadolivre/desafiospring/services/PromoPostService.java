@@ -8,8 +8,6 @@ import br.com.mercadolivre.desafiospring.dto.PromoPostCountDTO;
 import br.com.mercadolivre.desafiospring.dto.PromoPostDTO;
 import br.com.mercadolivre.desafiospring.repositories.ProductRepository;
 import br.com.mercadolivre.desafiospring.repositories.PromoPostRespository;
-import br.com.mercadolivre.desafiospring.resources.exceptions.UserNotASalesmanException;
-import br.com.mercadolivre.desafiospring.resources.exceptions.UserNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,7 +27,7 @@ public class PromoPostService {
         this.userService = userService;
     }
 
-    public void insert(PromoPostDTO promoPostDTO) throws UserNotASalesmanException, UserNotFoundException {
+    public void insert(PromoPostDTO promoPostDTO) {
         Integer userID = promoPostDTO.getUserID();
         Salesman salesman = userService.getSalesman(userID);
 
@@ -42,7 +40,7 @@ public class PromoPostService {
         promoPostRespository.save(promoPost);
     }
 
-    public PromoPostCountDTO getPromoPostCount(Integer userID) throws UserNotASalesmanException, UserNotFoundException {
+    public PromoPostCountDTO getPromoPostCount(Integer userID) {
         Salesman salesman = userService.getSalesman(userID);
         PromoPostCountDTO promoPostCountDTO = new PromoPostCountDTO(salesman);
 
@@ -53,7 +51,7 @@ public class PromoPostService {
         return promoPostCountDTO;
     }
 
-    public FeedPromoPostDTO getPromoPostList(Integer userID) throws UserNotASalesmanException, UserNotFoundException {
+    public FeedPromoPostDTO getPromoPostList(Integer userID) {
         Salesman salesman = userService.getSalesman(userID);
         FeedPromoPostDTO feedPromoPostDTO = new FeedPromoPostDTO();
 
