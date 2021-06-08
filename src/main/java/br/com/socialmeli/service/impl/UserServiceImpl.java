@@ -14,14 +14,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 @Log4j2
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
 	private UserRepository userRepository;
+
+	public UserServiceImpl(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
 	@Override
 	public Iterable<User> getAllUsers() {
@@ -60,7 +62,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserFollowersCountDTO getCounterFollowers(Long userId) {
 		User user = getUserById(userId);
-		return DTOUtils.map(user, UserFollowersCountDTO.class);
+		UserFollowersCountDTO userFollowersCountDTO = new UserFollowersCountDTO();
+
+		return userFollowersCountDTO.builder()
+				.id(user.getId())
+				.userName(user.getUserName())
+				.followerCount(user.getCountFollowers())
+				.build();
 	}
 
 	@Override

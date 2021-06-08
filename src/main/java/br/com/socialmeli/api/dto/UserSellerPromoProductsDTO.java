@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserFollowersCountDTO {
+public class UserSellerPromoProductsDTO {
     private long id;
     private String userName;
-    private int followerCount;
+    private int promoProductsCount;
 }

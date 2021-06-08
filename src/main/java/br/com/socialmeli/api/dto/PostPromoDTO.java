@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-public class PostDTO {
+public class PostPromoDTO {
     private Long userId;
     @JsonIgnore
     private Date date = new Date();
@@ -21,4 +21,9 @@ public class PostDTO {
 
     @NotNull
     private BigDecimal price;
+
+    @JsonIgnore
+    private boolean hasPromo = true;
+
+    private double discount;
 }

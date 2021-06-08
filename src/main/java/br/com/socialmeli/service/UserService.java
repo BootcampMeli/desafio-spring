@@ -5,8 +5,6 @@ import br.com.socialmeli.api.dto.UserFollowersCountDTO;
 import br.com.socialmeli.api.dto.UserFollowersDto;
 import br.com.socialmeli.model.entity.User;
 
-import java.util.Optional;
-
 public interface UserService {
 
     Iterable<User> getAllUsers();

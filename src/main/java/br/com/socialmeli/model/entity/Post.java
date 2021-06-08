@@ -42,5 +42,12 @@ public class Post implements Serializable {
 	@NotNull
 	private BigDecimal price;
 
+	private boolean hasPromo = false;
+
+	private double discount = 0.0;
+
+	public void setDiscount(double discount){
+		if (hasPromo) this.discount = discount;
+	}
 
 }

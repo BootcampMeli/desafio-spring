@@ -6,7 +6,9 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -37,7 +39,7 @@ public class User implements Serializable{
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<Post> posts = new HashSet<>();
+	private List<Post> posts = new ArrayList<>();
 
 	private boolean isSeller;
 

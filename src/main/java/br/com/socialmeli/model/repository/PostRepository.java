@@ -9,4 +9,5 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long>
 {
     List<Post> findByUserIdAndDateAfter(Long userid, Date date);
+    List<Post> findByUserIdAndHasPromo(Long userid, boolean hasPromo);
 }
