@@ -1,7 +1,9 @@
 insert into TB_USERS (user_name, is_seller) values ('usuario1', false);
+insert into TB_USERS (user_name, is_seller) values ('usuario2', false);
 insert into TB_USERS (user_name, is_seller) values ('vendedor1', true);
 
-INSERT INTO TB_USERS_FOLLOWED (FOLLOWERS_ID,FOLLOWED_ID) VALUES (1,2);
+INSERT INTO TB_USERS_FOLLOWED (FOLLOWERS_ID,FOLLOWED_ID) VALUES (1,3);
+INSERT INTO TB_USERS_FOLLOWED (FOLLOWERS_ID,FOLLOWED_ID) VALUES (2,3);
 
 INSERT INTO
     TB_PRODUCTS
